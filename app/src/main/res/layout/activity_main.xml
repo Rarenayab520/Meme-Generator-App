@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- App Title with decorative elements -->
+        <LinearLayout
+            android:id="@+id/titlecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_meme_face"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meme Generator"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laugh out loud with trending memes"
+                android:textSize="14sp"
+                android:textColor="@color/white_alpha_70"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Meme Image Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/memeCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp"
+            app:strokeColor="@color/purple_200"
+            app:strokeWidth="2dp"
+            app:layout_constraintTop_toBottomOf="@id/titlecontainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:foreground="?selectableItemBackgroundBorderless">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/memeImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/meme_placeholder"
+                    android:contentDescription="Meme Image"/>
+
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Meme Title -->
+        <LinearLayout
+            android:id="@+id/memeTitleContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/memeCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/memeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading meme..."
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="2dp"
+                android:background="@drawable/gradient_line"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Like and Share Buttons -->
+        <LinearLayout
+            android:id="@+id/btnROW"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/memeTitleContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLike"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Like"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:icon="@drawable/ic_favorite_border"
+                app:iconTint="@color/white"
+                app:strokeColor="@color/white"
+                app:cornerRadius="20dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:icon="@drawable/ic_share"
+                app:iconTint="@color/white"
+                app:strokeColor="@color/white"
+                app:cornerRadius="20dp"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Next Meme Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Generate New Meme"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:backgroundTint="@color/purple_500"
+            app:cornerRadius="32dp"
+            app:icon="@drawable/ic_refresh"
+            app:iconTint="@color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:paddingVertical="16dp"
+            app:layout_constraintTop_toBottomOf="@id/btnROW"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Loading Spinner -->
+        <LinearLayout
+            android:id="@+id/loadingContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/btnNext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminateTint="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading fresh memes..."
+                android:textSize="14sp"
+                android:textColor="@color/white_alpha_70"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by MemeAPI"
+            android:textSize="12sp"
+            android:textColor="@color/white_alpha_50"
+            app:layout_constraintTop_toBottomOf="@id/loadingContainer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
