@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- App Title with Decorative elements -->
+        <!-- App Title -->
         <LinearLayout
             android:id="@+id/titlecontainer"
             android:layout_width="match_parent"
@@ -92,7 +92,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="8dp"
             android:padding="8dp">
-
+            <!-- LOADING  -->
             <TextView
                 android:id="@+id/memeTitle"
                 android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
             app:layout_constraintTop_toBottomOf="@id/memeTitleContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
+            <!-- LIKE BUTTON -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLike"
                 style="@style/Widget.Material3.Button.OutlinedButton"
@@ -136,7 +136,7 @@
                 app:strokeColor="@color/white"
                 app:cornerRadius="20dp"
                 android:layout_marginEnd="8dp"/>
-
+            <!-- SHARE BUTTON -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShare"
                 style="@style/Widget.Material3.Button.OutlinedButton"
